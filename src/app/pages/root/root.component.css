@@ -1,0 +1,16 @@
+#particles-js {
+  height: calc(100% - 110px);
+}
+
+#content {
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  background-color: rgba(255, 255, 255, 0.85);
+
+  width: 80%;
+  max-width: 80%;
+
+  height: 60%;
+  max-height: 60%;
+}

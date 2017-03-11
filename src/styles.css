@@ -1,1 +1,99 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #252525 no-repeat 50% 50%;
+  background-size: cover;
+}
+
+#app-loading {
+  display: block;
+  z-index: 100;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  left: 50%;
+  margin: -75px 0 0 -75px;
+}
+
+/* Desktops */
+.show-on-phones {
+  display: none!important;
+}
+.show-on-tablets {
+  display: none!important;
+}
+.show-on-desktops {
+  display: block;
+}
+.hide-on-phones {
+  display: block!important;
+}
+.hide-on-tablets {
+  display: block!important;
+}
+.hide-on-desktops {
+  display: none;
+}
+
+/* Tablets */
+@media only screen and (min-width: 768px) and (max-width: 1280px) {
+  .hide-on-phones {
+    display: block!important;
+  }
+  .hide-on-tablets {
+    display: none!important;
+  }
+  .hide-on-desktops {
+    display: block!important;
+  }
+  .show-on-phones {
+    display: none!important;
+  }
+  .show-on-tablets {
+    display: block!important;
+  }
+  .show-on-desktops {
+    display: none!important;
+  }
+}
+
+/* Phones */
+@media only screen and (max-width: 767px) {
+  .hide-on-phones {
+    display: none !important;
+  }
+
+  .hide-on-tablets {
+    display: block !important;
+  }
+
+  .hide-on-desktops {
+    display: block !important;
+  }
+
+  .show-on-phones {
+    display: block !important;
+  }
+
+  .show-on-tablets {
+    display: none !important;
+  }
+
+  .show-on-desktops {
+    display: none !important;
+  }
+}

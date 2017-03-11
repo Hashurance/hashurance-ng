@@ -1,14 +1,32 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>ShamanNg</title>
+  <title>Shaman 2.0</title>
   <base href="/">
+  <meta charset="utf-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" />
+
+  <script type="text/javascript" src="assets/js/jquery.min.js "></script>
+
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="assets/js/particles.min.js"></script>
 </head>
 <body>
-  <app-root>Loading...</app-root>
+  <app-root>
+    <div id="particles-js"></div>
+    <img id="app-loading" src="assets/img/loading.svg" />
+
+    <script type="text/javascript">
+      particlesJS.load('particles-js', 'assets/js/particles.json');
+    </script>
+  </app-root>
 </body>
 </html>
