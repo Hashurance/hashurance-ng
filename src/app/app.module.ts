@@ -1,7 +1,7 @@
 import "hammerjs";
 import {BrowserModule} from "@angular/platform-browser";
-import {NgModule} from "@angular/core";
-import {FormsModule} from "@angular/forms";
+import { NgModule } from "@angular/core";
+import {FormsModule, ReactiveFormsModule, FormBuilder} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {RootComponent} from "./pages/root/root.component";
 import {IdentityComponent} from "./pages/identity/identity.component";
@@ -27,6 +27,11 @@ import {ClientcheckComponent} from "./pages/clientcheck/clientcheck.component";
 import {PaymentComponent} from "./pages/payment/payment.component";
 import {FormService} from "./services/form/form.service";
 
+import { SendetherComponent } from './sendether/sendether.component';
+import { DepositFormComponent } from './deposit-form/deposit-form.component';
+//SharedService exposing contracts from truffle to the Dapp
+import { SharedService } from './services/shared.service';
+
 @NgModule({
   declarations: [
     RootComponent,
@@ -35,14 +40,16 @@ import {FormService} from "./services/form/form.service";
     InsuranceComponent,
     GpComponent,
     ClientcheckComponent,
-    PaymentComponent
+    PaymentComponent,
+    SendetherComponent,
+    DepositFormComponent
   ],
   imports: [
     RouterModule.forRoot(AppRoutes),
     BrowserModule,
     FormsModule,
     HttpModule,
-
+    ReactiveFormsModule,
     // Angular Material
     MaterialModule,
     MdCoreModule,
@@ -56,9 +63,7 @@ import {FormService} from "./services/form/form.service";
     MdRadioModule,
     MdSnackBarModule
   ],
-  providers: [
-    FormService
-  ],
+  providers: [SharedService, FormBuilder, FormService],
   bootstrap: [RootComponent]
 })
 export class AppModule { }
