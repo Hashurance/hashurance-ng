@@ -1,48 +1,36 @@
 pragma solidity ^0.4.8;
 
 import "./State.sol";
+import "./strings.sol";
 
 //
 //Insurance contract
 //
 contract Insurance {
+    using strings for *;
+
     address public owner;
     address public state;
 
-    uint[] private subscribers;
+    string[] private subscribers;
     /*
     string private glasses = "glasses";
     string private tooth = "tooth";
     */
 
-    mapping (string => uint) private refundRate;
-    mapping (uint => bool) private prescriptionExists;
 
     function Insurance() public {
         owner = msg.sender;
-        refundRate["glasses"] = 80;
-        refundRate["tooth"] = 50;
     }
 
-    function addSubscriber(uint _subscriber) {
+    function addSubscriber(string _subscriber) {
         subscribers.push(_subscriber);
     }
 
-    function declarePrescription(uint subscriber ) public {
-        prescriptionExists[subscriber] = true;
-    }
 
-    //TODO
     //insurance pays to the med
     function getRefund(string txId, uint amount) public {
-        //checks the msg.sender is a med ? means the uid of the subscriber is signed by the state
-        /*
-        uint rate;
-        if (stringsEqual(glasses, prescription)) rate = 80;
-        if (stringsEqual(tooth, prescription)) rate = 50;
-        uint rate = refundRate[prescription];
-        uint value = amount * rate / 100;
-        */
+        //TODO : checks the msg.sender is a med ? means the uid of the subscriber is signed by the state
 
         //check the txID is a real one
         //once everything is verified, send the amount
@@ -52,7 +40,10 @@ contract Insurance {
         }
 
         //prescriptionExists[subscriber] = false;
+    }
 
+    function getTxID(string uid) public returns (string) {
+        var s = uid.toSlice().concat(bytes32ToString(now).toSlice());
     }
 
 
@@ -68,8 +59,26 @@ contract Insurance {
 		return true;
 	}
 
+    //convert a byte32 to string
+    function bytes32ToString(uint256 x) constant returns (string) {
+        bytes memory bytesString = new bytes(32);
+        uint charCount = 0;
+        for (uint j = 0; j < 32; j++) {
+            byte char = byte(bytes32(uint(x) * 2 ** (8 * j)));
+            if (char != 0) {
+                bytesString[charCount] = char;
+                charCount++;
+            }
+        }
+        bytes memory bytesStringTrimmed = new bytes(charCount);
+        for (j = 0; j < charCount; j++) {
+            bytesStringTrimmed[j] = bytesString[j];
+        }
+        return string(bytesStringTrimmed);
+    }
 
     modifier onlyOwner {
+        if (msg.sender != owner) throw;
         if (msg.sender != owner) throw;
         _;
     }
