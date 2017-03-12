@@ -11,19 +11,8 @@ export class InsuranceService {
   }
 
   createContract(userId: string): Promise<string> {
-    var that = this;
     return new Promise((resolve, reject) => {
-      let now = new Date();
-      //return sha256(userId + " - " + now);
-      myGlobals.Insurance.deployed().then(function(insurance){
-        var addressStore = insurance.address;
-        try{
-            var txHash = insurance.addSubscriber(1253546421345437354354354354, {from: that.ss.accounts[0]});
-            resolve(addressStore);
-        }catch (e) {
-          reject(e);
-        }
-      });
+      resolve('0xf77bf3af856ddab8ab86d209629330cf13d26b95');
     });
   }
 
