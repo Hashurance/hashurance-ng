@@ -15,3 +15,7 @@ input {
   width: 500px;
   max-width: 500px;
 }
+
+#inputs {
+  margin-top: 40px;
+}

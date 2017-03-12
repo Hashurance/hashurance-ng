@@ -19,5 +19,9 @@ export class PaymentComponent implements OnInit {
 
   ngOnInit(): void {
     this.formMetadata = this.formService.get();
+
+    if(this.formMetadata.cid == "" || this.formMetadata.uid1 == "" || this.formMetadata.uid2 == "") {
+      this.router.navigateByUrl('/clientcheck');
+    }
   }
 }

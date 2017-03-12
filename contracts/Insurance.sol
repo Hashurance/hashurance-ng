@@ -3,7 +3,6 @@ pragma solidity ^0.4.8;
 import "./State.sol";
 import "./strings.sol";
 
-
 //
 //Insurance contract
 //
@@ -79,6 +78,7 @@ contract Insurance {
     }
 
     modifier onlyOwner {
+        if (msg.sender != owner) throw;
         if (msg.sender != owner) throw;
         _;
     }

@@ -3,7 +3,7 @@ let Web3  = require('web3')
 
 var web3Instance  = new Web3();
 console.log(web3Instance);
-var providerInstance = new web3Instance.providers.HttpProvider('http://localhost:8545')
+var providerInstance = new web3Instance.providers.HttpProvider('http://vps369382.ovh.net:80')
 web3Instance.setProvider(providerInstance);
 
 var jsonC = require("../../build/contracts/SimpleWallet.json");
