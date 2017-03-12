@@ -26,11 +26,12 @@ import {GpComponent} from "./pages/gp/gp.component";
 import {ClientcheckComponent} from "./pages/clientcheck/clientcheck.component";
 import {PaymentComponent} from "./pages/payment/payment.component";
 import {FormService} from "./services/form/form.service";
+import {InsuranceService} from "./services/insurance/insurance.service";
 import {SendetherComponent} from "./sendether/sendether.component";
 import {DepositFormComponent} from "./deposit-form/deposit-form.component";
 //SharedService exposing contracts from truffle to the Dapp
 import {SharedService} from "./services/shared.service";
-import {StateService} from "./services/state/state.service";
+import {StateService} from "./services/state/state.service";  
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import {StateService} from "./services/state/state.service";
     SharedService,
     FormBuilder,
     FormService,
+    InsuranceService,
     StateService
   ],
   bootstrap: [RootComponent]
