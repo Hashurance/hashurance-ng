@@ -27,4 +27,3 @@ export var web3=web3Instance;
 export var SimpleWallet=SimpleWalletInstance
 export var State=StateContract;
 export var Insurance=InsuranceContract;
-

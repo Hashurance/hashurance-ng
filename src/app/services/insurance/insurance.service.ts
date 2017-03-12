@@ -18,7 +18,7 @@ export class InsuranceService {
       myGlobals.Insurance.deployed().then(function(insurance){
         var addressStore = insurance.address;
         try{
-            var txHash = insurance.addSubscriber(1253546421345437354354354354, {from: that.ss.accounts[0]});
+            var txHash = insurance.addSubscriber(userId, {from: that.ss.accounts[0]});
             resolve(addressStore);
         }catch (e) {
           reject(e);
