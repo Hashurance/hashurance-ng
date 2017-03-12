@@ -18,10 +18,16 @@
     "1489328576134": {
       "events": {},
       "links": {},
-      "address": "0xc6d55628bca63dc178ff5ee6372f357e47c9d9b1",
-      "updated_at": 1489331869113
+      "address": "0x6bf457d9d78f977ce13e7996f80f424bcc2479a3",
+      "updated_at": 1489335048578
+    },
+    "1489335446159": {
+      "events": {},
+      "links": {},
+      "address": "0x76ee302678e63ee473b2468c95a31a977c956735",
+      "updated_at": 1489335450254
     }
   },
   "schema_version": "0.0.5",
-  "updated_at": 1489331869113
+  "updated_at": 1489335450254
 }
