@@ -11,6 +11,7 @@ module.exports = function(deployer) {
   deployer.deploy(Owned);
   deployer.deploy(State);
   deployer.link(State, Strings);
+  deployer.link(Insurance, Strings);
   deployer.deploy(Insurance);
   deployer.deploy(Med);
 };
