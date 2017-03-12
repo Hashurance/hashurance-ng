@@ -1,6 +1,6 @@
 pragma solidity ^0.4.8;
 
-import "Insurance.sol";
+import "./Insurance.sol";
 
 contract Med {
     address public owner;

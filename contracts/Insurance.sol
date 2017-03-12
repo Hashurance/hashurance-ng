@@ -1,7 +1,7 @@
 pragma solidity ^0.4.8;
 
-import "State.sol";
-import "strings.sol";
+import "./State.sol";
+import "./strings.sol";
 
 
 //
