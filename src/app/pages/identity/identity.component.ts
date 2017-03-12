@@ -26,16 +26,16 @@ export class IdentityComponent implements OnInit {
   }
 
   generateUniqueIdentifier() {
-    this.stateService.generateUID(this.formMetadata.socialSecurityNumber).then(uid =>{
-		  this.formMetadata.uid1 = uid;
+    this.stateService.generateUID(this.formMetadata.socialSecurityNumber).then(tx =>{
+		  this.formMetadata.uid1 = tx.tx;
 
 	    console.log(JSON.stringify(this.formMetadata));
 
 	    this.formService.set(this.formMetadata);
 	    this.router.navigateByUrl('insurance');
-	}).catch(e => {
-    console.error(e);
-    this.snackBar.open(e.toString(), 'Close');
-  });
+  	}).catch(e => {
+      console.error(e);
+      this.snackBar.open(e.toString(), 'Close');
+    });
   }
 }
