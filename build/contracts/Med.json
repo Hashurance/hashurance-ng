@@ -1,0 +1,99 @@
+{
+  "contract_name": "Med",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "log",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "hash",
+          "type": "bytes32"
+        },
+        {
+          "name": "v",
+          "type": "uint8"
+        },
+        {
+          "name": "r",
+          "type": "bytes32"
+        },
+        {
+          "name": "s",
+          "type": "bytes32"
+        }
+      ],
+      "name": "recover",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "add",
+          "type": "address"
+        }
+      ],
+      "name": "LogAddress",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "address"
+        }
+      ],
+      "name": "LogRecover",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x606060405234610000575b60008054600160a060020a03191633600160a060020a0390811691909117825560405130909116917fb123f68b8ba02b447d91a6629e121111b7dd6061ff418a60139c8bf00522a28491a25b5b610222806100666000396000f300606060405263ffffffff60e060020a60003504166351973ec9811461003a5780638da5cb5b14610063578063c2bf17b01461008c575b610000565b34610000576100476100c4565b60408051600160a060020a039092168252519081900360200190f35b34610000576100476100d3565b60408051600160a060020a039092168252519081900360200190f35b346100005761004760043560ff602435166044356064356100e2565b60408051600160a060020a039092168252519081900360200190f35b600154600160a060020a031681565b600054600160a060020a031681565b60408051600081815260208083018452918301819052825187815260ff87168184015280840186905260608101859052925190926001926080808301939192601f19830192908190039091019086866161da5a03f115610000575050604051601f198101516001805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03928316179081905516907fb123f68b8ba02b447d91a6629e121111b7dd6061ff418a60139c8bf00522a28490600090a260015460408051600160a060020a03928316815290513392909216917f67afe429cb342713e576100c15035843b6f14efbb46c76cd088490cd5eba667f9181900360200190a250600154600160a060020a03165b9493505050505600a165627a7a7230582024c03d3cf3f855b0bbda8373eb61fe405ead4359af6ebc24ceaf42b0bdea8d670029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1489281561137
+}

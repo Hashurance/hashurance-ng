@@ -1,6 +1,6 @@
 import "hammerjs";
 import {BrowserModule} from "@angular/platform-browser";
-import {NgModule} from "@angular/core";
+import { NgModule } from "@angular/core";
 import {FormsModule, ReactiveFormsModule, FormBuilder} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {RootComponent} from "./pages/root/root.component";
@@ -66,8 +66,6 @@ import { SharedService } from './services/shared.service';
     MdSnackBarModule
   ],
   providers: [SharedService, FormBuilder, FormService],
-    FormService
-  ],
   bootstrap: [RootComponent]
 })
 export class AppModule { }
