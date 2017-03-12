@@ -4,5 +4,15 @@ geth --datadir /Users/Vincent/Library/Ethereum/testnet/geth/chaindata/ --network
 geth --datadir /Users/Vincent/Library/Ethereum/testnet/geth/chaindata/ --networkid 3 account new
 pipopipo
 
-account
+account on ropsten (got +1 eth)
 0xA8F61f229584978b74d2b3107EE17A1A76d7A7f1
+
+verify testrpc is running remote :
+MacBook-Air-de-vincent:shaman-ng vincent$ wget http://vps369382.ovh.net
+--2017-03-12 16:13:29--  http://vps369382.ovh.net/
+Resolving vps369382.ovh.net... 193.70.40.147
+Connecting to vps369382.ovh.net|193.70.40.147|:80... connected.
+HTTP request sent, awaiting response... 400 Bad Request
+2017-03-12 16:13:29 ERROR 400: Bad Request.
+
+geth attach http://vps369382.ovh.net:80
