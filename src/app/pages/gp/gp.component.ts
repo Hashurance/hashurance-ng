@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormMetadata} from "../../services/form/form.class";
 import {Router} from "@angular/router";
 import {FormService} from "../../services/form/form.service";
+import {StateService} from "../../services/state/state.service";
 
 @Component({
   selector: 'app-gp',
@@ -14,7 +15,8 @@ export class GpComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private formService: FormService
+    private formService: FormService,
+    private stateService: StateService
   ) {}
 
   ngOnInit(): void {
