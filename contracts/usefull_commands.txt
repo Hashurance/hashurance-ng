@@ -1,0 +1,8 @@
+geth --datadir /Users/Vincent/Library/Ethereum/testnet/geth/chaindata/ init /Users/Vincent/Library/Ethereum/testnet/testnet_genesis.json;
+geth --datadir /Users/Vincent/Library/Ethereum/testnet/geth/chaindata/ --networkid 3 console
+
+geth --datadir /Users/Vincent/Library/Ethereum/testnet/geth/chaindata/ --networkid 3 account new
+pipopipo
+
+account
+0xA8F61f229584978b74d2b3107EE17A1A76d7A7f1
