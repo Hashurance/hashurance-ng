@@ -10,10 +10,7 @@ export class MedProviderService {
   }
 
   insuranceAddress(userId: string): Promise<string> {
-    var that = this;
-    var insuranceAdress = myGlobals.Insurance.deployed().then(function(insurance){
-      return insurance.address;
-    });
+    return undefined;
   }
 
 
