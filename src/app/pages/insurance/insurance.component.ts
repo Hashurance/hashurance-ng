@@ -23,6 +23,10 @@ export class InsuranceComponent implements OnInit {
 
   ngOnInit(): void {
     this.formMetadata = this.formService.get();
+
+    if(this.formMetadata.uid1 == "") {
+      this.router.navigateByUrl('/');
+    }
   }
 
   submitContractRequest() {

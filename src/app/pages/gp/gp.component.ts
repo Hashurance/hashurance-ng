@@ -21,6 +21,10 @@ export class GpComponent implements OnInit {
 
   ngOnInit(): void {
     this.formMetadata = this.formService.get();
+
+    if(this.formMetadata.cid == "") {
+      this.router.navigateByUrl('/insurance');
+    }
   }
 
   issueRefundRequest() {
