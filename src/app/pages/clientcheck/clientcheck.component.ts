@@ -12,6 +12,7 @@ import {MdSnackBar} from "@angular/material";
 })
 export class ClientcheckComponent implements OnInit {
 
+  private error: boolean = false;
   private formMetadata: FormMetadata;
 
   constructor(
@@ -23,6 +24,7 @@ export class ClientcheckComponent implements OnInit {
 
   ngOnInit(): void {
     this.formMetadata = this.formService.get();
+    this.error = false;
 
     if(this.formMetadata.uid1 == "" || this.formMetadata.uid2 == "") {
       this.router.navigateByUrl('/gp');
@@ -36,6 +38,7 @@ export class ClientcheckComponent implements OnInit {
       this.formService.set(this.formMetadata);
       this.router.navigateByUrl('payment');
     }).catch(e => {
+      this.error = true;
       console.error(JSON.stringify(e));
       this.snackBar.open(e.toString(), 'Close');
     });

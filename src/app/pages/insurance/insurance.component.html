@@ -18,7 +18,7 @@
             <thead>
               <tr>
                 <td>Contract ID</td>
-                <td>Tooth</td>
+                <td>Teeth</td>
                 <td>Glasses</td>
               </tr>
             </thead>
@@ -36,7 +36,10 @@
             </tbody>
           </table>
 
-          <md-input-container id="inputs">
+          <md-input-container>
+            <input mdInput type="text" name="contract" placeholder="Contract identifier" value="0x58ec43apo89ddab8abdfd209fb51c4cf13d26b28" />
+          </md-input-container>
+          <md-input-container>
             <input mdInput type="text" name="uid1" placeholder="Unique identifier" [(ngModel)]="formMetadata.uid1" />
           </md-input-container>
         </div>
