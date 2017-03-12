@@ -28,5 +28,5 @@ $ truffle migrate
 
 After this you can build the application & run is via :
 ```
-$ npm run startd
+$ ng serve --open
 ```
