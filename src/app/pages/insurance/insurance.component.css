@@ -19,3 +19,7 @@ input {
 #inputs {
   margin-top: 40px;
 }
+
+.table, .table tr, .table td {
+  border-color: #333333;
+}
