@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FormService} from "../../services/form/form.service";
+import {Router} from "@angular/router";
+import {FormMetadata} from "../../services/form/form.class";
 
 @Component({
   selector: 'app-payment',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentComponent implements OnInit {
 
-  constructor() { }
+  private formMetadata: FormMetadata;
 
-  ngOnInit() {
+  constructor(
+    private router: Router,
+    private formService: FormService
+  ) {}
+
+  ngOnInit(): void {
+    this.formMetadata = this.formService.get();
   }
-
 }

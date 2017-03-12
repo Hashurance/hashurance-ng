@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FormService} from "../../services/form/form.service";
+import {Router} from "@angular/router";
+import {FormMetadata} from "../../services/form/form.class";
 
 @Component({
   selector: 'app-clientcheck',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientcheckComponent implements OnInit {
 
-  constructor() { }
+  private formMetadata: FormMetadata;
 
-  ngOnInit() {
+  constructor(
+    private router: Router,
+    private formService: FormService
+  ) {}
+
+  ngOnInit(): void {
+    this.formMetadata = this.formService.get();
   }
 
+  checkClient() {
+    console.log(JSON.stringify(this.formMetadata));
+
+    this.formService.set(this.formMetadata);
+    this.router.navigateByUrl('payment');
+  }
 }

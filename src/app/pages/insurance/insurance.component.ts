@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FormMetadata} from "../../services/form/form.class";
+import {Router} from "@angular/router";
+import {FormService} from "../../services/form/form.service";
 
 @Component({
   selector: 'app-insurance',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InsuranceComponent implements OnInit {
 
-  constructor() { }
+  private formMetadata: FormMetadata;
 
-  ngOnInit() {
+  constructor(
+    private router: Router,
+    private formService: FormService
+  ) {}
+
+  ngOnInit(): void {
+    this.formMetadata = this.formService.get();
   }
 
+  submitContractRequest() {
+    console.log(JSON.stringify(this.formMetadata));
+
+    this.formService.set(this.formMetadata);
+    this.router.navigateByUrl('gp');
+  }
 }

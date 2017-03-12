@@ -1,3 +1,31 @@
-<p>
-  clientcheck works!
-</p>
+<form (ngSubmit)="checkClient()">
+  <md-grid-list cols="5" rowHeight="100%">
+    <md-grid-tile>
+      <button md-mini-fab class="mat-primary" (click)="router.navigateByUrl('/gp')">
+        <md-icon>keyboard_arrow_left</md-icon>
+      </button>
+    </md-grid-tile>
+
+    <md-grid-tile colspan="3">
+      <div class="row">
+        <div class="col-sm-1 col-md-3">
+          <md-icon id="icon">check</md-icon>
+        </div>
+        <div class="col-sm-11 col-md-9">
+          <md-input-container>
+            <input mdInput type="text" name="cid" placeholder="Unique identifier n°1 (from contract)" [(ngModel)]="formMetadata.uid1" />
+          </md-input-container>
+          <md-input-container>
+            <input mdInput type="text" name="cid" placeholder="Unique identifier n°2 (from GP's request)" [(ngModel)]="formMetadata.uid2" />
+          </md-input-container>
+        </div>
+      </div>
+    </md-grid-tile>
+
+    <md-grid-tile>
+      <button md-mini-fab class="mat-primary" type="submit">
+        <md-icon>keyboard_arrow_right</md-icon>
+      </button>
+    </md-grid-tile>
+  </md-grid-list>
+</form>
