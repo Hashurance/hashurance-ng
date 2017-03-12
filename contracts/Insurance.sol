@@ -1,10 +1,13 @@
 pragma solidity ^0.4.8;
 
+import "State.sol";
+
 //
 //Insurance contract
 //
 contract Insurance {
     address public owner;
+    address public state;
 
     uint[] private subscribers;
     /*
@@ -31,17 +34,25 @@ contract Insurance {
 
     //TODO
     //insurance pays to the med
-    function getRefund(uint subscriber, string prescription, address _med, uint amount) public {
+    function getRefund(string txId, uint amount) public {
         //checks the msg.sender is a med ? means the uid of the subscriber is signed by the state
         /*
         uint rate;
         if (stringsEqual(glasses, prescription)) rate = 80;
         if (stringsEqual(tooth, prescription)) rate = 50;
-        */
         uint rate = refundRate[prescription];
         uint value = amount * rate / 100;
-        if (msg.sender.send(value)) throw;
-        prescriptionExists[subscriber] = false;
+        */
+
+        //check the txID is a real one
+        //once everything is verified, send the amount
+        State state = State(state);
+        if (state.validateUID(txId)){
+            if (!msg.sender.send(amount)) throw;
+        }
+
+        //prescriptionExists[subscriber] = false;
+
     }
 
 
@@ -63,43 +74,5 @@ contract Insurance {
         _;
     }
 
-
-}
-
-//
-//State contract
-//
-contract State {
-    address[] private citizens;
-    address[] private meds;
-    address public owner;
-
-    function State() public {
-        owner = msg.sender;
-    }
-
-    function addCitizen(address _citizen) onlyOwner public {
-        citizens.push(_citizen);
-    }
-
-    function addMed(address _med) onlyOwner public {
-        meds.push(_med);
-    }
-
-    // to be modified, choice of the inputs to use
-    function getUUID(address _citizen) public returns (bytes32) {
-        return sha3(_citizen, this);
-    }
-
-    //verify
-    function validateUID(uint uid) public returns (bool) {
-
-    }
-
-
-    modifier onlyOwner {
-        if (msg.sender != owner) throw;
-        _;
-    }
 
 }
