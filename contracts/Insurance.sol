@@ -1,6 +1,6 @@
 pragma solidity ^0.4.8;
 
-import "State.sol";
+import "./State.sol";
 
 //
 //Insurance contract

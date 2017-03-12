@@ -1,6 +1,6 @@
 pragma solidity ^0.4.8;
 
-import "strings.sol";
+import "./strings.sol";
 
 //
 //State contract
