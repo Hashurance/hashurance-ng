@@ -1,13 +1,13 @@
-pragma solidity ^0.4.2;
+pragma solidity ^0.4.8;
 
-import "./Owned.sol";
 
-contract State is Owned {
+contract State {
     address[] private citizens;
     address[] private meds;
+    address public owner;
 
     function State() public {
-        Owner();
+        owner = msg.sender;
     }
 
     function addCitizen(address _citizen) onlyOwner public {
@@ -22,4 +22,10 @@ contract State is Owned {
     function getUUID(address _citizen) public returns (bytes32) {
         return sha3(_citizen, this);
     }
+
+    modifier onlyOwner {
+        if (msg.sender != owner) throw;
+        _;
+    }
+
 }

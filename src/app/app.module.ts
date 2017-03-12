@@ -31,6 +31,9 @@ import { SendetherComponent } from './sendether/sendether.component';
 import { DepositFormComponent } from './deposit-form/deposit-form.component';
 import { SharedService } from './services/shared.service';
 
+//SharedService exposing contracts from truffle to the Dapp
+import { SharedService } from './services/shared.service';
+
 @NgModule({
   declarations: [
     RootComponent,
