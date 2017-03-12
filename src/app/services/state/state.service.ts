@@ -9,7 +9,12 @@ export class StateService {
     return sha256(id + new Date());
   }
 
-  validateClient(uid: string): boolean {
-    return true;
+  validateClient(uid: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+      if(uid == 'abc')
+        reject('Identifiers do not match');
+      else
+        resolve();
+    });
   }
 }
