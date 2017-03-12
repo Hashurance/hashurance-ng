@@ -32,18 +32,30 @@ export class InsuranceComponent implements OnInit {
   }
 
   submitContractRequest() {
-    let contractId = this.insuranceService.createContract(this.formMetadata.uid1).then((contractId) => {
-      this.formMetadata.cid = contractId;
-      this.stateService.generateUID(this.formMetadata.socialSecurityNumber).then(uid => {
-        this.formMetadata.uid2 = uid;
-        console.log(JSON.stringify(this.formMetadata));
+    var that = this;
+    var counter = 0;
+    var callback = () => {
+      if(counter >= 2) {
+        console.log(JSON.stringify(that.formMetadata));
 
-        this.formService.set(this.formMetadata);
+        this.formService.set(that.formMetadata);
         this.router.navigateByUrl('gp');
-      }).catch(e => {
-        console.log(JSON.stringify(e));
-        this.snackBar.open(e.toString(), 'Close');
-      })
+      }
+    }
+
+    this.stateService.generateUID(this.formMetadata.socialSecurityNumber).then(tx => {
+      this.formMetadata.uid2 = tx.tx;
+      counter ++;
+      callback();
+    }).catch(e => {
+      console.log(JSON.stringify(e));
+      this.snackBar.open(e.toString(), 'Close');
+    })
+
+    this.insuranceService.createContract(this.formMetadata.uid1).then((contractId) => {
+      this.formMetadata.cid = contractId;
+      counter ++;
+      callback();
     }).catch(e => {
       console.log(JSON.stringify(e))
       this.snackBar.open(e.toString(), 'Close');
