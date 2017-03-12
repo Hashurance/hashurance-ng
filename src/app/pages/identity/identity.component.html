@@ -1,3 +1,26 @@
-<p>
-  identity works!
-</p>
+<form (ngSubmit)="generateUniqueIdentifier()">
+  <md-grid-list cols="5" rowHeight="100%">
+    <md-grid-tile>
+      &nbsp;
+    </md-grid-tile>
+
+    <md-grid-tile colspan="3">
+      <div class="row">
+        <div class="col-sm-1 col-md-3">
+          <md-icon id="icon">person</md-icon>
+        </div>
+        <div class="col-sm-11 col-md-9">
+          <md-input-container id="inputs">
+            <input mdInput type="text" name="id" placeholder="Social security number" [(ngModel)]="formMetadata.socialSecurityNumber" />
+          </md-input-container>
+        </div>
+      </div>
+    </md-grid-tile>
+
+    <md-grid-tile>
+      <button md-mini-fab class="mat-primary" type="submit">
+        <md-icon>keyboard_arrow_right</md-icon>
+      </button>
+    </md-grid-tile>
+  </md-grid-list>
+</form>

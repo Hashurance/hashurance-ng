@@ -25,6 +25,7 @@ import {InsuranceComponent} from "./pages/insurance/insurance.component";
 import {GpComponent} from "./pages/gp/gp.component";
 import {ClientcheckComponent} from "./pages/clientcheck/clientcheck.component";
 import {PaymentComponent} from "./pages/payment/payment.component";
+import {FormService} from "./services/form/form.service";
 
 @NgModule({
   declarations: [
@@ -55,7 +56,9 @@ import {PaymentComponent} from "./pages/payment/payment.component";
     MdRadioModule,
     MdSnackBarModule
   ],
-  providers: [],
+  providers: [
+    FormService
+  ],
   bootstrap: [RootComponent]
 })
 export class AppModule { }

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from "@angular/core";
+import {Router} from "@angular/router";
+import {FormService} from "../../services/form/form.service";
+import {FormMetadata} from "../../services/form/form.class";
 
 @Component({
   selector: 'app-identity',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IdentityComponent implements OnInit {
 
-  constructor() { }
+  private formMetadata: FormMetadata;
 
-  ngOnInit() {
+  constructor(
+    private router: Router,
+    private formService: FormService
+  ) {}
+
+  ngOnInit(): void {
+    this.formMetadata = this.formService.get();
   }
 
+  generateUniqueIdentifier() {
+    console.log(JSON.stringify(this.formMetadata));
+
+    this.formService.set(this.formMetadata);
+    this.router.navigateByUrl('insurance');
+  }
 }
