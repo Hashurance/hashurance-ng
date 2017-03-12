@@ -24,11 +24,15 @@ export class InsuranceComponent implements OnInit {
   }
 
   submitContractRequest() {
-    let contractId = this.insuranceService.createContract(this.formMetadata.uid1);
-    this.formMetadata.cid = contractId;
-    console.log(JSON.stringify(this.formMetadata));
+    let contractId = this.insuranceService.createContract(this.formMetadata.uid1).then((contractId) => {
+      this.formMetadata.cid = contractId;
+      console.log(JSON.stringify(this.formMetadata));
 
-    this.formService.set(this.formMetadata);
-    this.router.navigateByUrl('gp');
+      this.formService.set(this.formMetadata);
+      this.router.navigateByUrl('gp');
+    }).catch(e => {
+      console.log(JSON.stringify(e))
+    });
+
   }
 }

@@ -27,6 +27,7 @@ import {ClientcheckComponent} from "./pages/clientcheck/clientcheck.component";
 import {PaymentComponent} from "./pages/payment/payment.component";
 import {FormService} from "./services/form/form.service";
 import {InsuranceService} from "./services/insurance/insurance.service";
+import {MedProviderService} from "./services/medProvider/medProvider.service";
 
 import { SendetherComponent } from './sendether/sendether.component';
 import { DepositFormComponent } from './deposit-form/deposit-form.component';
@@ -64,7 +65,7 @@ import { SharedService } from './services/shared.service';
     MdRadioModule,
     MdSnackBarModule
   ],
-  providers: [SharedService, FormBuilder, FormService, InsuranceService],
+  providers: [SharedService, FormBuilder, FormService, InsuranceService, MedProviderService],
   bootstrap: [RootComponent]
 })
 export class AppModule { }

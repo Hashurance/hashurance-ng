@@ -1,10 +1,9 @@
 import {Injectable} from "@angular/core";
-const sha256 = require("sha256");
 import {SharedService} from '../../services/shared.service';
 import * as myGlobals from '../../globals';
 
 @Injectable()
-export class InsuranceService {
+export class MedProviderService {
 
   constructor(private ss: SharedService) {
     ss.accounts = myGlobals.web3.eth.accounts;
@@ -19,13 +18,14 @@ export class InsuranceService {
         var addressStore = insurance.address;
         try{
             var txHash = insurance.addSubscriber(1253546421345437354354354354, {from: that.ss.accounts[0]});
-            resolve(addressStore);
+            resolve(txHash);
         }catch (e) {
           reject(e);
         }
       });
     });
   }
+
 
   getRefund(uid : string) : number {
     return 100;
