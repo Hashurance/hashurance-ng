@@ -1,3 +1,19 @@
-<p>
-  payment works!
-</p>
+<md-grid-list cols="5" rowHeight="100%">
+  <md-grid-tile>
+    <button md-mini-fab class="mat-primary" (click)="router.navigateByUrl('/clientcheck')">
+      <md-icon>keyboard_arrow_left</md-icon>
+    </button>
+  </md-grid-tile>
+
+  <md-grid-tile colspan="3">
+    <div class="row">
+      <div class="col-md-12">
+        <md-icon id="icon">check</md-icon>
+      </div>
+    </div>
+  </md-grid-tile>
+
+  <md-grid-tile>
+    &nbsp;
+  </md-grid-tile>
+</md-grid-list>
