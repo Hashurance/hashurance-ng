@@ -19,6 +19,10 @@ export class ClientcheckComponent implements OnInit {
 
   ngOnInit(): void {
     this.formMetadata = this.formService.get();
+
+    if(this.formMetadata.uid1 == "" || this.formMetadata.uid2 == "") {
+      this.router.navigateByUrl('/gp');
+    }
   }
 
   checkClient() {

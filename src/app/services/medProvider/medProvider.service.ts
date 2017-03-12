@@ -9,20 +9,10 @@ export class MedProviderService {
     ss.accounts = myGlobals.web3.eth.accounts;
   }
 
-  createContract(userId: string): Promise<string> {
+  insuranceAddress(userId: string): Promise<string> {
     var that = this;
-    return new Promise((resolve, reject) => {
-      let now = new Date();
-      //return sha256(userId + " - " + now);
-      myGlobals.Insurance.deployed().then(function(insurance){
-        var addressStore = insurance.address;
-        try{
-            var txHash = insurance.addSubscriber(1253546421345437354354354354, {from: that.ss.accounts[0]});
-            resolve(txHash);
-        }catch (e) {
-          reject(e);
-        }
-      });
+    var insuranceAdress = myGlobals.Insurance.deployed().then(function(insurance){
+      return insurance.address;
     });
   }
 

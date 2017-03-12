@@ -1,6 +1,6 @@
 import "hammerjs";
 import {BrowserModule} from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import {NgModule} from "@angular/core";
 import {FormsModule, ReactiveFormsModule, FormBuilder} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {RootComponent} from "./pages/root/root.component";
@@ -29,10 +29,11 @@ import {FormService} from "./services/form/form.service";
 import {InsuranceService} from "./services/insurance/insurance.service";
 import {MedProviderService} from "./services/medProvider/medProvider.service";
 
-import { SendetherComponent } from './sendether/sendether.component';
-import { DepositFormComponent } from './deposit-form/deposit-form.component';
+import {SendetherComponent} from "./sendether/sendether.component";
+import {DepositFormComponent} from "./deposit-form/deposit-form.component";
 //SharedService exposing contracts from truffle to the Dapp
-import { SharedService } from './services/shared.service';
+import {SharedService} from "./services/shared.service";
+import {StateService} from "./services/state/state.service";
 
 @NgModule({
   declarations: [
@@ -65,7 +66,14 @@ import { SharedService } from './services/shared.service';
     MdRadioModule,
     MdSnackBarModule
   ],
-  providers: [SharedService, FormBuilder, FormService, InsuranceService, MedProviderService],
+  providers: [
+    SharedService,
+    FormBuilder,
+    FormService,
+    InsuranceService,
+    StateService,
+    MedProviderService
+  ],
   bootstrap: [RootComponent]
 })
 export class AppModule { }
